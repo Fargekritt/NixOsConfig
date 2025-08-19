@@ -19,7 +19,6 @@
   # environment.
   home.packages = with pkgs; [
     git
-    gh
     jetbrains-toolbox
     spotify
     oh-my-zsh
@@ -80,9 +79,18 @@
         init.defaultBranch = "main";
       };
     };
+
+  programs.gh = {
+    enable = true;
+    gitCredentialHelper = {
+      enable = true;
+    };
+  };
   home.sessionVariables = {
      EDITOR = "nvim";
   };
+
+
   programs.zsh = {
     enable = true;
     shellAliases = {

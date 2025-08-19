@@ -20,6 +20,9 @@
   home.packages = with pkgs; [
     git
     gh
+    jetbrains-toolbox
+    spotify
+    oh-my-zsh
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -80,7 +83,24 @@
   home.sessionVariables = {
      EDITOR = "nvim";
   };
-
+  programs.zsh = {
+    enable = true;
+    shellAliases = {
+      ll = "ls -l";
+      la = "ls -a";
+      update = "sudo nixos-rebuild switch --flake /home/amund/nixos#nixos";
+    };
+    oh-my-zsh = {
+       enable = true;
+       plugins = [ ];
+       theme = "robbyrussell";
+     };
+  };
+programs.plasma = {
+enable = true;
+kscreenlocker.autoLock = false;
+kwin.effects.shakeCursor.enable = false;
+};
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

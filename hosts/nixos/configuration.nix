@@ -32,7 +32,7 @@
   time.timeZone = "Europe/Oslo";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "nb_NO.UTF-8";
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
@@ -71,17 +71,30 @@
   };
   
   nix.settings.experimental-features = ["nix-command" "flakes"];
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
+
+  programs.zsh.enable = true;
   users.users.amund = {
     isNormalUser = true;
     description = "Amund";
+    shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
+      lutris
     #  thunderbird
     ];
   };
+
+  # Install firefox.
+  programs.firefox.enable = true;
+
+  programs.steam.enable = true;
+
+
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
@@ -89,12 +102,6 @@
       "amund" = import ./home.nix;
     };
   };
-
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

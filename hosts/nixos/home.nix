@@ -109,6 +109,7 @@ enable = true;
 kscreenlocker.autoLock = false;
 kwin.effects.shakeCursor.enable = false;
 };
+  programs.chromium.enable = true;
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

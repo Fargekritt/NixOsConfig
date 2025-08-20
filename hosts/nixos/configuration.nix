@@ -50,7 +50,6 @@
 
   # Configure console keymap
   console.keyMap = "no";
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -119,7 +118,7 @@
   };
 
   services.xserver.videoDrivers = ["nvidia"];
-hardware.nvidia = {
+  hardware.nvidia = {
 
     # Modesetting is required.
     modesetting.enable = true;

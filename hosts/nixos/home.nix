@@ -108,6 +108,7 @@
 programs.plasma = {
 enable = true;
 kscreenlocker.autoLock = false;
+    powerdevil.AC.autoSuspend.action = "nothing";
 kwin.effects.shakeCursor.enable = false;
 };
   programs.chromium.enable = true;

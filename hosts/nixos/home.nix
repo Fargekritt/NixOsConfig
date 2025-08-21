@@ -1,6 +1,9 @@
-{ config, pkgs, programs, ... }:
-
 {
+  config,
+  pkgs,
+  programs,
+  ...
+}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "amund";
@@ -73,13 +76,13 @@
   #  /etc/profiles/per-user/amund/etc/profile.d/hm-session-vars.sh
   #
   programs.git = {
-      enable = true;
-      extraConfig = {
-        user.name = "Amund";
-        user.email = "Lullinj98@gmail.com";
-        init.defaultBranch = "main";
-      };
+    enable = true;
+    extraConfig = {
+      user.name = "Amund";
+      user.email = "Lullinj98@gmail.com";
+      init.defaultBranch = "main";
     };
+  };
 
   programs.gh = {
     enable = true;
@@ -88,9 +91,8 @@
     };
   };
   home.sessionVariables = {
-     EDITOR = "nvim";
+    EDITOR = "nvim";
   };
-
 
   programs.zsh = {
     enable = true;
@@ -100,17 +102,17 @@
       update = "sudo nixos-rebuild switch --flake /home/amund/nixos#nixos";
     };
     oh-my-zsh = {
-       enable = true;
-       plugins = [ ];
-       theme = "robbyrussell";
-     };
+      enable = true;
+      plugins = [];
+      theme = "robbyrussell";
+    };
   };
-programs.plasma = {
-enable = true;
-kscreenlocker.autoLock = false;
+  programs.plasma = {
+    enable = true;
+    kscreenlocker.autoLock = false;
     powerdevil.AC.autoSuspend.action = "nothing";
-kwin.effects.shakeCursor.enable = false;
-};
+    kwin.effects.shakeCursor.enable = false;
+  };
   programs.chromium.enable = true;
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

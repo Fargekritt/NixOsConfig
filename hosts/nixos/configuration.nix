@@ -83,7 +83,6 @@
     packages = with pkgs; [
       kdePackages.kate
       lutris
-      nixd
       #  thunderbird
     ];
   };
@@ -111,6 +110,8 @@
     wget
     neovim
     kitty
+    pyright
+    nixd
     alejandra
   ];
 

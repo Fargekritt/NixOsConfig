@@ -30,7 +30,6 @@
     docker
     gnumake
     rofi
-    waybar
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -121,4 +120,8 @@
   programs.chromium.enable = true;
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs.waybar = {
+    enable = true;
+  };
 }

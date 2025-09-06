@@ -30,6 +30,7 @@
     docker
     gnumake
     rofi
+    slurp
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -123,5 +124,8 @@
 
   programs.waybar = {
     enable = true;
+  };
+  home.file = {
+    "/home/amund/.config/waybar".source = ./waybar;
   };
 }

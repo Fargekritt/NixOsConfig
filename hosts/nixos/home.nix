@@ -126,6 +126,7 @@
     enable = true;
   };
   home.file = {
-    "/home/amund/.config/waybar".source = ./waybar;
+    "~/.config/waybar".source = ./waybar;
+    "~/.config/hypr".source = ./hypr;
   };
 }

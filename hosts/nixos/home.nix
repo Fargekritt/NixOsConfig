@@ -128,5 +128,6 @@
   home.file = {
     "~/.config/waybar".source = ./waybar;
     "~/.config/hypr".source = ./hypr;
+    "~/.config/nvim".source = ./config/nvim;
   };
 }

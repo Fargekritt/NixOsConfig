@@ -126,8 +126,9 @@
     enable = true;
   };
   home.file = {
-    "~/.config/waybar".source = ./waybar;
-    "~/.config/hypr".source = ./hypr;
-    "~/.config/nvim".source = ./config/nvim;
+    "/home/amund/.config/waybar".source = ./waybar;
+    "/home/amund/.config/hypr".source = ./hypr;
+    "/home/amund/.config/nvim".source = ./config/nvim;
+    "/home/amund/.config/rofi".source = ./config/rofi;
   };
 }

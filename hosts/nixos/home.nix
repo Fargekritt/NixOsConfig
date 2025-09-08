@@ -77,6 +77,7 @@
   #
   #  /etc/profiles/per-user/amund/etc/profile.d/hm-session-vars.sh
   #
+    "x-scheme-handler/http" = "firefox.desktop"
   programs.git = {
     enable = true;
     extraConfig = {

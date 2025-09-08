@@ -54,7 +54,7 @@
     "/home/amund/.config/hypr".source = ./dotfiles/hypr;
     "/home/amund/.config/nvim".source = ./dotfiles/nvim;
     "/home/amund/.config/rofi".source = ./dotfiles/rofi;
-    "${config.home.homeDirectory}/.ideavimrc".source = ./config/ideavim/.ideavimrc;
+    "${config.home.homeDirectory}/.ideavimrc".source = ./dotfiles/ideavim/.ideavimrc;
   };
 
   # Home Manager can also manage your environment variables through

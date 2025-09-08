@@ -50,10 +50,10 @@
   ];
 
   home.file = {
-    "/home/amund/.config/waybar".source = ./waybar;
-    "/home/amund/.config/hypr".source = ./hypr;
-    "/home/amund/.config/nvim".source = ./config/nvim;
-    "/home/amund/.config/rofi".source = ./config/rofi;
+    "/home/amund/.config/waybar".source = ./dotfiles/waybar;
+    "/home/amund/.config/hypr".source = ./dotfiles/hypr;
+    "/home/amund/.config/nvim".source = ./dotfiles/nvim;
+    "/home/amund/.config/rofi".source = ./dotfiles/rofi;
     "${config.home.homeDirectory}/.ideavimrc".source = ./config/ideavim/.ideavimrc;
   };
 

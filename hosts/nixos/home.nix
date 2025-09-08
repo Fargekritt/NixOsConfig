@@ -130,5 +130,6 @@
     "/home/amund/.config/hypr".source = ./hypr;
     "/home/amund/.config/nvim".source = ./config/nvim;
     "/home/amund/.config/rofi".source = ./config/rofi;
+    "${config.home.homeDirectory}/.ideavimrc".source = ./config/ideavim/.ideavimrc;
   };
 }

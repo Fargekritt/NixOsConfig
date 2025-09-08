@@ -102,6 +102,10 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  xdg.mime.defaultApplications = {
+    "x-scheme-handler/http" = "firefox.desktop";
+    "x-scheme-handler/https" = "firefox.desktop";
+  };
   programs.steam.enable = true;
 
   # Allow unfree packages

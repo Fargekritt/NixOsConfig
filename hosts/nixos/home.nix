@@ -57,10 +57,6 @@
     "${config.home.homeDirectory}/.ideavimrc".source = ./config/ideavim/.ideavimrc;
   };
 
-  xdg.mime.defaultApplications = {
-    "x-scheme-handler/http" = "firefox.desktop";
-    "x-scheme-handler/https" = "firefox.desktop";
-  };
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
   # shell provided by Home Manager. If you don't want to manage your shell
@@ -77,7 +73,6 @@
   #
   #  /etc/profiles/per-user/amund/etc/profile.d/hm-session-vars.sh
   #
-    "x-scheme-handler/http" = "firefox.desktop"
   programs.git = {
     enable = true;
     extraConfig = {

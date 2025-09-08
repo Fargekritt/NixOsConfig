@@ -1,0 +1,129 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+"" -- Suggested options --
+let mapleader = " "
+set relativenumber
+set showcmd
+set clipboard=unnamedplus,unnamed,ideaput
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=200
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq 
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+" Custom commands
+
+
+nnoremap <leader>vv :e ~/.ideavimrc<CR>
+nnoremap <leader>vr :source ~/.ideavimrc<CR>
+
+" Harpoon
+let g:WhichKeyDesc_harpoon_prefix = "<leader>h harpoon prefix"
+let g:WhichKeyDesc_harpoon_1 = "<leader>h1 GoTo harpoon1"
+let g:WhichKeyDesc_harpoon_2 = "<leader>h2 GoTo harpoon2"
+let g:WhichKeyDesc_harpoon_3 = "<leader>h3 GoTo harpoon3"
+let g:WhichKeyDesc_harpoon_4 = "<leader>h4 GoTo harpoon4"
+let g:WhichKeyDesc_harpoon_5 = "<leader>h5 GoTo harpoon5"
+nmap <leader>h1 :action GotoHarpoon1<CR> 
+nmap <leader>h2 :action GotoHarpoon2<CR> 
+nmap <leader>h3 :action GotoHarpoon3<CR> 
+nmap <leader>h4 :action GotoHarpoon4<CR> 
+nmap <leader>h5 :action GotoHarpoon5<CR> 
+
+let g:WhichKeyDesc_harpoon_set_prefix = "<leader>hs harpoon set prefix"
+let g:WhichKeyDesc_harpoon_set_1 = "<leader>h1s GoTo harpoon1"
+let g:WhichKeyDesc_harpoon_set_2 = "<leader>h2s GoTo harpoon2"
+let g:WhichKeyDesc_harpoon_set_3 = "<leader>h3s GoTo harpoon3"
+let g:WhichKeyDesc_harpoon_set_4 = "<leader>h4s GoTo harpoon4"
+let g:WhichKeyDesc_harpoon_set_5 = "<leader>h5s GoTo harpoon5"
+nmap <leader>hs1 :action SetHarpoon1<CR> 
+nmap <leader>hs2 :action SetHarpoon2<CR> 
+nmap <leader>hs3 :action SetHarpoon3<CR> 
+nmap <leader>hs4 :action SetHarpoon4<CR> 
+nmap <leader>hs5 :action SetHarpoon5<CR> 
+
+" Window Movement/handling
+nmap <leader>wn :action NextSplitter<CR>
+nmap <leader>wp :action PrevSplitter<CR>
+nmap <leader>wS :action SplitVertically<CR>
+nmap <leader>wo :action MoveEditorToOppositeTabGroup<CR> 
+nmap <leader>wsh :action SplitHorizontally<CR>
+nmap <leader>wsc :action Unsplit<CR>
+" Tabs handling
+nmap <leader>tn :action NextTab<CR>
+nmap <leader>tp :action PreviousTab<CR>
+
+" Code refactor
+nmap <leader>ri :action Inline<CR>
+nmap <leader>rr :action RenameElement<CR>
+nmap <leader>rem :action ExtractMethod<CR>
+nmap <leader>rm :action Move<CR>
+nmap <leader>ro :action OptimizeImports<CR>
+nmap <leader>rG :action Generate<CR>
+" visual mode
+vmap <leader>rev :action IntroduceVariable<CR>
+
+" code navigation
+let g:WhichKeyDesc_code_nav_prefix = "<leader>c [c]ode navigation"
+let g:WhichKeyDesc_code_nav_dec = "<leader>cd goto [c]ode [d]eclaration"
+let g:WhichKeyDesc_code_nav_imp = "<leader>cd goto [c]ode [i]mplementation"
+nmap <leader>cd :action GotoDeclaration<CR>
+nmap <leader>ci :action GotoImplementation<CR>
+
+nmap <leader>pv :action SelectInProjectView<CR>
+nmap <Leader>b :action Back<CR>
+nmap <Leader>B :action Forward<CR>
+nmap <leader>n :action GotoNextError<CR>
+nmap <leader>vp :action VcsShowPrevChangeMarker<CR>
+nmap <leader>vn :action VcsShowNextChangeMarker<CR>
+" Mac Weird keymapping workaround 
+nmap ª :action VcsShowPrevChangeMarker<CR> " alt + k
+nmap √ :action VcsShowNextChangeMarker<CR> " alt + j
+
+" Code movement
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+nmap <C-k> :action MoveStatementUp<CR>
+xmap <C-j> :action MoveStatementDown<CR>
+nmap <C-j> :action MoveStatementDown<CR>
+xmap <C-k> :action MoveStatementUp<CR>
+
+
+"Misc actions
+map <leader>f <Action>(ReformatCode)
+nmap <leader>? :action GotoAction<CR>
+nmap <leader>S <Action>(ChooseRunConfiguration)
+nmap <leader>s <Action>(Run)
+nmap <C-p> :action ParameterInfo<CR>
+imap <C-p> <C-o>:action ParameterInfo<CR>
+map gh <Action>(ShowErrorDescription)
+
+" Debug related actions
+let g:WhichKeyDesc_debug_prefix = "<leader>d debug Prefix"
+let g:WhichKeyDesc_debug_action = "<leader>dt Toggle Line breakpoint"
+let g:WhichKeyDesc_debug_action = "<leader>D Run with debugger"
+nmap <leader>D <Action>(Debug)
+nmap <leader>dt :action ToggleLineBreakpoint<CR> 
+
+" Custom actions
+command! Blame :action Annotate " You cant hide from Git Blame
+command! Line set relativenumber!
+command! Tin :call TinEye()
+function TinEye()
+    echo "Lestibournes"
+    :action Annotate
+endfunction
+
+set which-key
+set notimeout

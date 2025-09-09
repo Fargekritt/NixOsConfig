@@ -78,9 +78,11 @@ vmap <leader>rev :action IntroduceVariable<CR>
 " code navigation
 let g:WhichKeyDesc_code_nav_prefix = "<leader>c [c]ode navigation"
 let g:WhichKeyDesc_code_nav_dec = "<leader>cd goto [c]ode [d]eclaration"
-let g:WhichKeyDesc_code_nav_imp = "<leader>cd goto [c]ode [i]mplementation"
+let g:WhichKeyDesc_code_nav_imp = "<leader>ci goto [c]ode [i]mplementation"
+let g:WhichKeyDesc_code_nav_cls = "<leader>cc goto [c]ode [c]lass"
 nmap <leader>cd :action GotoDeclaration<CR>
 nmap <leader>ci :action GotoImplementation<CR>
+nmap <leader>cc :action GotoClass<CR> " Search everywhere men for bare classes
 
 nmap <leader>pv :action SelectInProjectView<CR>
 nmap <Leader>b :action Back<CR>

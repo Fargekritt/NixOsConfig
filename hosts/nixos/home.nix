@@ -53,7 +53,7 @@
   home.file = {
     "/home/amund/.config/waybar".source = ./dotfiles/waybar;
     "/home/amund/.config/hypr".source = ./dotfiles/hypr;
-    "/home/amund/.config/nvim".source = ./dotfiles/nvim;
+    "/home/amund/.config/nvim".source = ./dotfiles/new-nvim;
     "/home/amund/.config/rofi".source = ./dotfiles/rofi;
     "${config.home.homeDirectory}/.ideavimrc".source = ./dotfiles/ideavim/.ideavimrc;
   };

@@ -34,6 +34,7 @@
     slurp
     grim
     wl-clipboard
+    stylua
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

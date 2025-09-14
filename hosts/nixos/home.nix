@@ -59,6 +59,8 @@
     "/home/amund/.config/rofi".source = ./dotfiles/rofi;
     "${config.home.homeDirectory}/.ideavimrc".source = ./dotfiles/ideavim/.ideavimrc;
   };
+
+  # home.file creates symlink to readonly store. breaks Lazy (lazy-lock.json)
 home.activation.symlinkDotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
   ln -sf $HOME/nixos/hosts/nixos/dotfiles/new-nvim $HOME/.config/nvim
 '';

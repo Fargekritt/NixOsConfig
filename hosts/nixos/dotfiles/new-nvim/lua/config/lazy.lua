@@ -19,13 +19,14 @@ vim.g.maplocalleader = " "
 
 -- Setup lazy.nvim
 require("lazy").setup({
+--  lockfile = vim.fn.stdpath("state") .. "/lazy-lock.json", Workaround for nix stuff
   spec = {
-    -- import your plugins
-    { import = "plugins" },
+   -- import your plugins
+    { import = "fargekritt.plugins" },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "habamax" } },
+  install = { colorscheme = { "folke/tokyonight.nvim" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })

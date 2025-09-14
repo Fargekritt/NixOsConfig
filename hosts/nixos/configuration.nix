@@ -86,6 +86,7 @@
       kdePackages.kate
       lutris
       mako
+      stylua
       #  thunderbird
     ];
   };

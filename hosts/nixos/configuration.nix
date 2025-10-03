@@ -44,7 +44,7 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  #services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -76,8 +76,6 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
   # Define a user account. Don't forget to set a password with ‘passwd’.
 
-  # GNome keyring
-  services.gnome-keyring.enable = true;
 
   programs.zsh.enable = true;
   users.users.amund = {
@@ -89,7 +87,6 @@
       kdePackages.kate
       mako
       stylua
-      gcr
       #  thunderbird
     ];
   };

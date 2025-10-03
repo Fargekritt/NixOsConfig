@@ -76,6 +76,9 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
   # Define a user account. Don't forget to set a password with ‘passwd’.
 
+  # GNome keyring
+  services.gnome-keyring.enable = true;
+
   programs.zsh.enable = true;
   users.users.amund = {
     isNormalUser = true;
@@ -84,9 +87,9 @@
     extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
       kdePackages.kate
-      lutris
       mako
       stylua
+      gcr
       #  thunderbird
     ];
   };

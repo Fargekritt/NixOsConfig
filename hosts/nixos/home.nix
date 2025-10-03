@@ -36,6 +36,28 @@
     wl-clipboard
     stylua
     unzip
+            winetricks
+        wine-staging
+	libpng
+            (lutris.override (finalAttrs: {
+          extraPkgs = pkgs: [
+            pkgs.wineWowPackages.stagingFull
+            pkgs.winetricks
+            pkgs.libappindicator-gtk2
+            pkgs.libappindicator-gtk3
+            pkgs.gnomeExtensions.appindicator
+            pkgs.libayatana-appindicator
+            pkgs.appindicator-sharp
+            pkgs.haskellPackages.gi-ayatana-appindicator3
+            pkgs.mangohud
+          ];
+        }))
+	        (pkgs.makeDesktopItem {
+          name = "microsoft-edge-wl";
+          exec =
+            "${pkgs.microsoft-edge}/bin/microsoft-edge --enable-features=UseOzonePlatform --ozone-platform=wayland --use-gl=desktop";
+          desktopName = "microsoft-edge-wayland";
+        })
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -64,7 +86,7 @@
 
   # home.file creates symlink to readonly store. breaks Lazy (lazy-lock.json)
 home.activation.symlinkDotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-  ln -sf $HOME/nixos/hosts/nixos/dotfiles/new-nvim $HOME/.config/nvim
+  ln -sf $HOME/nixos/hosts/nixos/dotfiles/nvim $HOME/.config/nvim
 '';
 
   # Home Manager can also manage your environment variables through

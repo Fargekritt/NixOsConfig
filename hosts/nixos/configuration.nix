@@ -84,7 +84,7 @@
     shell = pkgs.zsh;
     extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-      kdePackages.kate
+ #     kdePackages.kate
       mako
       stylua
       #  thunderbird

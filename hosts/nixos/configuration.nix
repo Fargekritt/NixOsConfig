@@ -84,7 +84,7 @@
     shell = pkgs.zsh;
     extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-    dolphin
+      kdePackages.dolphin
       mako
       stylua
       #  thunderbird

@@ -88,7 +88,7 @@ services.gnome-keyring.enable = true;
 
   # home.file creates symlink to readonly store. breaks Lazy (lazy-lock.json)
 home.activation.symlinkDotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-  ln -sf $HOME/nixos/hosts/nixos/dotfiles/nvim $HOME/.config/nvim
+  ln -sf $HOME/nixos/hosts/nixos/dotfiles/nvim/nvim $HOME/.config/nvim
 '';
 
   # Home Manager can also manage your environment variables through

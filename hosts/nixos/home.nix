@@ -26,6 +26,7 @@ services.gnome-keyring.enable = true;
     gcc
     gcr
     git
+    pcsx2
     jetbrains-toolbox
     spotify
     oh-my-zsh
@@ -37,7 +38,9 @@ services.gnome-keyring.enable = true;
     grim
     wl-clipboard
     stylua
+    prusa-slicer
     unzip
+
             winetricks
         wine-staging
 	libpng

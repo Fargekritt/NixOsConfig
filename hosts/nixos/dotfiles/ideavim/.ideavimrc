@@ -27,7 +27,7 @@ Plug 'tpope/vim-commentary'
 
 
 nnoremap <leader>vv :e ~/.ideavimrc<CR>
-nnoremap <leader>vr :source ~/.ideavimrc<CR>
+nnoremap <leader>vS :source ~/.ideavimrc<CR>
 
 " Harpoon
 let g:WhichKeyDesc_harpoon_prefix = "<leader>h harpoon prefix"
@@ -69,20 +69,22 @@ nmap <leader>tp :action PreviousTab<CR>
 nmap <leader>ri :action Inline<CR>
 nmap <leader>rr :action RenameElement<CR>
 nmap <leader>rem :action ExtractMethod<CR>
+vmap <leader>rem :action ExtractMethod<CR>
 nmap <leader>rm :action Move<CR>
 nmap <leader>ro :action OptimizeImports<CR>
 nmap <leader>rG :action Generate<CR>
 " visual mode
 vmap <leader>rev :action IntroduceVariable<CR>
 
-" code navigation
 let g:WhichKeyDesc_code_nav_prefix = "<leader>c [c]ode navigation"
 let g:WhichKeyDesc_code_nav_dec = "<leader>cd goto [c]ode [d]eclaration"
 let g:WhichKeyDesc_code_nav_imp = "<leader>ci goto [c]ode [i]mplementation"
 let g:WhichKeyDesc_code_nav_cls = "<leader>cc goto [c]ode [c]lass"
+let g:WhichKeyDesc_code_nav_ParameterInfo = "<leader>cp goto [c]ode [p]arameterInfo"
 nmap <leader>cd :action GotoDeclaration<CR>
 nmap <leader>ci :action GotoImplementation<CR>
 nmap <leader>cc :action GotoClass<CR> " Search everywhere men for bare classes
+nmap <leader>cp :action ParameterInfo<CR>
 
 nmap <leader>pv :action SelectInProjectView<CR>
 nmap <Leader>b :action Back<CR>
@@ -90,6 +92,8 @@ nmap <Leader>B :action Forward<CR>
 nmap <leader>n :action GotoNextError<CR>
 nmap <leader>vp :action VcsShowPrevChangeMarker<CR>
 nmap <leader>vn :action VcsShowNextChangeMarker<CR>
+let g:WhichKeyDesc_vcs_rollback_lines_ParameterInfo = "<leader>vrl goto [v]ersion control [r]ollback [l]ines"
+nmap <leader>vrl :action Vcs.RollbackChangedLines<CR
 " Mac Weird keymapping workaround 
 nmap ª :action VcsShowPrevChangeMarker<CR> " alt + k
 nmap √ :action VcsShowNextChangeMarker<CR> " alt + j
@@ -111,8 +115,11 @@ nmap <C-p> :action ParameterInfo<CR>
 imap <C-p> <C-o>:action ParameterInfo<CR>
 map gh <Action>(ShowErrorDescription)
 
-" Debug related actions
-let g:WhichKeyDesc_debug_prefix = "<leader>d debug Prefix"
+let g:WhichKeyDesc_scratch_window ="<leader>ps Open new scratch buffer"
+let g:WhichKeyDesc_diff_windows ="<leader>px Open new blank diff viewer"
+nmap <leader>ps <Action>(NewScratchBuffer)
+nmap <leader>px <Action>(ShowBlankDiffWindow)
+
 let g:WhichKeyDesc_debug_action = "<leader>dt Toggle Line breakpoint"
 let g:WhichKeyDesc_debug_action = "<leader>D Run with debugger"
 nmap <leader>D <Action>(Debug)

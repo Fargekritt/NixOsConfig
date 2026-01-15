@@ -2,6 +2,7 @@
   config,
   pkgs,
   programs,
+  lib,
   ...
 }: {
   # Home Manager needs a bit of information about you and the paths it should
@@ -32,6 +33,9 @@
     rofi
     slurp
     grim
+    wl-clipboard
+    stylua
+    unzip
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -53,10 +57,15 @@
   home.file = {
     "/home/amund/.config/waybar".source = ./dotfiles/waybar;
     "/home/amund/.config/hypr".source = ./dotfiles/hypr;
-    "/home/amund/.config/nvim".source = ./dotfiles/nvim;
+#    "/home/amund/.config/nvim".source = ./dotfiles/new-nvim;
     "/home/amund/.config/rofi".source = ./dotfiles/rofi;
     "${config.home.homeDirectory}/.ideavimrc".source = ./dotfiles/ideavim/.ideavimrc;
   };
+
+  # home.file creates symlink to readonly store. breaks Lazy (lazy-lock.json)
+home.activation.symlinkDotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  ln -sf $HOME/nixos/hosts/nixos/dotfiles/new-nvim $HOME/.config/nvim
+'';
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a

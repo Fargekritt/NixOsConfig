@@ -90,10 +90,23 @@ nmap <leader>pv :action SelectInProjectView<CR>
 nmap <Leader>b :action Back<CR>
 nmap <Leader>B :action Forward<CR>
 nmap <leader>n :action GotoNextError<CR>
+
+" Vcs stuff
 nmap <leader>vp :action VcsShowPrevChangeMarker<CR>
 nmap <leader>vn :action VcsShowNextChangeMarker<CR>
-let g:WhichKeyDesc_vcs_rollback_lines_ParameterInfo = "<leader>vrl goto [v]ersion control [r]ollback [l]ines"
-nmap <leader>vrl :action Vcs.RollbackChangedLines<CR
+
+let g:WhichKeyDesc_vcs_rollback_lines = "<leader>vrl goto [v]ersion control [r]ollback [l]ines"
+nmap <leader>vrl :action Vcs.RollbackChangedLines<CR>
+
+let g:WhichKeyDesc_vcs_actions = "<leader>va goto [v]ersion control [a]ction"
+nmap <leader>va :action VersionControlsGroup<CR>
+vmap <leader>va :action VersionControlsGroup<CR>
+
+let g:WhichKeyDesc_vcs_history = "<leader>vh goto [v]ersion control [h]istory"
+nmap <leader>vh :action Vcs.ShowTabbedFileHistory<CR>
+vmap <leader>vh :action Vcs.ShowHistoryForBlock<CR>
+
+
 " Mac Weird keymapping workaround 
 nmap ª :action VcsShowPrevChangeMarker<CR> " alt + k
 nmap √ :action VcsShowNextChangeMarker<CR> " alt + j

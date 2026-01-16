@@ -92,9 +92,11 @@ nmap <Leader>B :action Forward<CR>
 nmap <leader>n :action GotoNextError<CR>
 
 " Vcs stuff
+let g:WhichKeyDesc_vcs = "<leader>v goto [v]ersion control"
 nmap <leader>vp :action VcsShowPrevChangeMarker<CR>
 nmap <leader>vn :action VcsShowNextChangeMarker<CR>
 
+let g:WhichKeyDesc_vcs_rollback = "<leader>vr goto [v]ersion control [r]ollback"
 let g:WhichKeyDesc_vcs_rollback_lines = "<leader>vrl goto [v]ersion control [r]ollback [l]ines"
 nmap <leader>vrl :action Vcs.RollbackChangedLines<CR>
 

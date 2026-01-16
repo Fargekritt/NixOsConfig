@@ -93,7 +93,14 @@ nmap <leader>n :action GotoNextError<CR>
 
 " Vcs stuff
 let g:WhichKeyDesc_vcs = "<leader>v goto [v]ersion control"
+
+" Mac Weird keymapping workaround 
+nmap ª :action VcsShowPrevChangeMarker<CR> " alt + k
+nmap √ :action VcsShowNextChangeMarker<CR> " alt + j
+
+let g:WhichKeyDesc_vcs_previous_change = "<leader>v goto [v]ersion control [p]revious change"
 nmap <leader>vp :action VcsShowPrevChangeMarker<CR>
+let g:WhichKeyDesc_vcs_next_change= "<leader>v goto [v]ersion control [n]ext change"
 nmap <leader>vn :action VcsShowNextChangeMarker<CR>
 
 let g:WhichKeyDesc_vcs_rollback = "<leader>vr goto [v]ersion control [r]ollback"
@@ -109,9 +116,6 @@ nmap <leader>vh :action Vcs.ShowTabbedFileHistory<CR>
 vmap <leader>vh :action Vcs.ShowHistoryForBlock<CR>
 
 
-" Mac Weird keymapping workaround 
-nmap ª :action VcsShowPrevChangeMarker<CR> " alt + k
-nmap √ :action VcsShowNextChangeMarker<CR> " alt + j
 
 " Code movement
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t

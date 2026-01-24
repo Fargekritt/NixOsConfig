@@ -31,8 +31,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-hardware.bluetooth.enable = true;
-services.blueman.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
@@ -46,7 +44,7 @@ services.blueman.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
-  #services.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -78,7 +76,6 @@ services.blueman.enable = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
   # Define a user account. Don't forget to set a password with ‘passwd’.
 
-
   programs.zsh.enable = true;
   users.users.amund = {
     isNormalUser = true;
@@ -86,7 +83,8 @@ services.blueman.enable = true;
     shell = pkgs.zsh;
     extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-      kdePackages.dolphin
+      kdePackages.kate
+      lutris
       mako
       stylua
       #  thunderbird

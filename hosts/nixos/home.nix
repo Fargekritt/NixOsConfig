@@ -3,7 +3,6 @@
   pkgs,
   programs,
   lib,
-  services,
   ...
 }: {
   # Home Manager needs a bit of information about you and the paths it should
@@ -19,15 +18,12 @@
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "25.05"; # Please read the comment before changing.
-services.gnome-keyring.enable = true;
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-  nodejs
     gcc
-    gcr
     git
-    pcsx2
     jetbrains-toolbox
     spotify
     oh-my-zsh
@@ -39,30 +35,7 @@ services.gnome-keyring.enable = true;
     grim
     wl-clipboard
     stylua
-    prusa-slicer
     unzip
-            winetricks
-        wine-staging
-	libpng
-            (lutris.override (finalAttrs: {
-          extraPkgs = pkgs: [
-            pkgs.wineWowPackages.stagingFull
-            pkgs.winetricks
-            pkgs.libappindicator-gtk2
-            pkgs.libappindicator-gtk3
-            pkgs.gnomeExtensions.appindicator
-            pkgs.libayatana-appindicator
-            pkgs.appindicator-sharp
-            pkgs.haskellPackages.gi-ayatana-appindicator3
-            pkgs.mangohud
-          ];
-        }))
-	        (pkgs.makeDesktopItem {
-          name = "microsoft-edge-wl";
-          exec =
-            "${pkgs.microsoft-edge}/bin/microsoft-edge --enable-features=UseOzonePlatform --ozone-platform=wayland --use-gl=desktop";
-          desktopName = "microsoft-edge-wayland";
-        })
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -89,10 +62,9 @@ services.gnome-keyring.enable = true;
     "${config.home.homeDirectory}/.ideavimrc".source = ./dotfiles/ideavim/.ideavimrc;
   };
 
-
   # home.file creates symlink to readonly store. breaks Lazy (lazy-lock.json)
 home.activation.symlinkDotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-  ln -sf $HOME/nixos/hosts/nixos/dotfiles/nvim/nvim $HOME/.config/nvim
+  ln -sf $HOME/nixos/hosts/nixos/dotfiles/new-nvim $HOME/.config/nvim
 '';
 
   # Home Manager can also manage your environment variables through
@@ -136,8 +108,6 @@ home.activation.symlinkDotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       ll = "ls -l";
       la = "ls -a";
       update = "sudo nixos-rebuild switch --flake /home/amund/nixos#nixos";
-      upgrade = "sudo nixos-rebuild switch --upgrade --flake /home/amund/nixos#nixos";
-
     };
     oh-my-zsh = {
       enable = true;

@@ -23,6 +23,7 @@ services.gnome-keyring.enable = true;
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+  nodejs
     gcc
     gcr
     git
@@ -40,7 +41,6 @@ services.gnome-keyring.enable = true;
     stylua
     prusa-slicer
     unzip
-
             winetricks
         wine-staging
 	libpng
@@ -89,6 +89,7 @@ services.gnome-keyring.enable = true;
     "${config.home.homeDirectory}/.ideavimrc".source = ./dotfiles/ideavim/.ideavimrc;
   };
 
+
   # home.file creates symlink to readonly store. breaks Lazy (lazy-lock.json)
 home.activation.symlinkDotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
   ln -sf $HOME/nixos/hosts/nixos/dotfiles/nvim/nvim $HOME/.config/nvim
@@ -135,6 +136,8 @@ home.activation.symlinkDotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       ll = "ls -l";
       la = "ls -a";
       update = "sudo nixos-rebuild switch --flake /home/amund/nixos#nixos";
+      upgrade = "sudo nixos-rebuild switch --upgrade --flake /home/amund/nixos#nixos";
+
     };
     oh-my-zsh = {
       enable = true;

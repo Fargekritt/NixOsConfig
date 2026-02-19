@@ -85,6 +85,8 @@ nmap <leader>cd :action GotoDeclaration<CR>
 nmap <leader>ci :action GotoImplementation<CR>
 nmap <leader>cc :action GotoClass<CR> " Search everywhere men for bare classes
 nmap <leader>cp :action ParameterInfo<CR>
+nmap <leader>cu :action FindUsages<CR>
+nmap <leader>cs :action GotoSuperMethod<CR>
 
 nmap <leader>pv :action SelectInProjectView<CR>
 nmap <Leader>b :action Back<CR>

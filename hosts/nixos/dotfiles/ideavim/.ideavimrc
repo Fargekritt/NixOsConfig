@@ -76,16 +76,25 @@ nmap <leader>rG :action Generate<CR>
 " visual mode
 vmap <leader>rev :action IntroduceVariable<CR>
 
+" Code Navigation
 let g:WhichKeyDesc_code_nav_prefix = "<leader>c [c]ode navigation"
+
 let g:WhichKeyDesc_code_nav_dec = "<leader>cd goto [c]ode [d]eclaration"
-let g:WhichKeyDesc_code_nav_imp = "<leader>ci goto [c]ode [i]mplementation"
-let g:WhichKeyDesc_code_nav_cls = "<leader>cc goto [c]ode [c]lass"
-let g:WhichKeyDesc_code_nav_ParameterInfo = "<leader>cp goto [c]ode [p]arameterInfo"
 nmap <leader>cd :action GotoDeclaration<CR>
+
+let g:WhichKeyDesc_code_nav_imp = "<leader>ci goto [c]ode [i]mplementation"
 nmap <leader>ci :action GotoImplementation<CR>
+
+let g:WhichKeyDesc_code_nav_cls = "<leader>cc goto [c]ode [c]lass"
 nmap <leader>cc :action GotoClass<CR> " Search everywhere men for bare classes
+
+let g:WhichKeyDesc_code_nav_ParameterInfo = "<leader>cp goto [c]ode [p]arameterInfo"
 nmap <leader>cp :action ParameterInfo<CR>
+
+let g:WhichKeyDesc_code_nav_Usage = "<leader>cu goto [c]ode [u]sage"
 nmap <leader>cu :action FindUsages<CR>
+
+let g:WhichKeyDesc_code_nav_BaseSymbol = "<leader>cs goto [c]ode [s]uper symbol"
 nmap <leader>cs :action GotoSuperMethod<CR>
 
 nmap <leader>pv :action SelectInProjectView<CR>

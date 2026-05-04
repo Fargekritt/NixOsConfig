@@ -12,6 +12,13 @@ set clipboard=unnamedplus,unnamed,ideaput
 " text scroll if you mouse-click near the start or end of the window.
 set scrolloff=200
 
+augroup SqlBindings
+    autocmd!
+    autocmd BufEnter *.sql vmap <buffer> <leader>S <Action>(Console.Jdbc.Execute)
+    autocmd BufEnter *.sql nmap <buffer> <leader>p <Action>(Console.Jdbc.ExplainPlan)
+    autocmd BufEnter *.sql nmap <buffer> <leader>c <Action>(Console.Jdbc.Cancel)
+augroup END
+
 " Do incremental searching.
 set incsearch
 
@@ -24,7 +31,6 @@ Plug 'machakann/vim-highlightedyank'
 " Commentary plugin
 Plug 'tpope/vim-commentary'
 " Custom commands
-
 
 nnoremap <leader>vv :e ~/.ideavimrc<CR>
 nnoremap <leader>vS :source ~/.ideavimrc<CR>
@@ -156,13 +162,15 @@ nmap <leader>D <Action>(Debug)
 nmap <leader>dt :action ToggleLineBreakpoint<CR> 
 
 " Custom actions
-command! Blame :action Annotate " You cant hide from Git Blame
-command! Line set relativenumber!
-command! Tin :call TinEye()
-function TinEye()
-    echo "Lestibournes"
-    :action Annotate
-endfunction
+augroup mine
+    command! Blame :action Annotate " You cant hide from Git Blame
+    command! Line set relativenumber!
+    command! Tin :call TinEye()
+    function TinEye()
+        echo "Lestibournes"
+        :action Annotate
+    endfunction
+augroup END
 
 set which-key
 set notimeout
